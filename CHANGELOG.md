@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Remove the manifest naming violation, avoid the broad `:has` selector, and add a lockfile for reproducible dependency checks.
+
 ## 0.2.1
 
 - Clarify installation and usage.

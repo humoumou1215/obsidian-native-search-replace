@@ -349,6 +349,8 @@ class SearchReplaceController {
 
     const regexLabel = targetRow.createEl('label', { cls: 'native-search-replace-mini-toggle' });
     this.regexInput = regexLabel.createEl('input', { type: 'checkbox' });
+    this.regexLabel = regexLabel;
+    this.regexInput.addEventListener('change', () => this.syncRegexToggleState());
     regexLabel.createSpan({ text: '.*' });
     regexLabel.setAttribute('title', 'Treat Find target as regular expression');
     regexLabel.setAttribute('aria-label', 'Regular expression');
@@ -384,6 +386,10 @@ class SearchReplaceController {
     this.syncTargetFromNativeQuery(true);
   }
 
+  syncRegexToggleState() {
+    this.regexLabel?.classList.toggle('is-checked', !!this.regexInput?.checked);
+  }
+
   getQuery() {
     const input = this.getNativeSearchInput();
     return input ? input.value || '' : '';
@@ -398,12 +404,14 @@ class SearchReplaceController {
       this.targetRow.removeClass('is-visible');
       this.findInput.value = inferred.target;
       this.regexInput.checked = inferred.regex;
+      this.syncRegexToggleState();
       this.manualTargetDirty = false;
       return;
     }
 
     this.targetRow.addClass('is-visible');
     if (!this.manualTargetDirty) this.regexInput.checked = false;
+    this.syncRegexToggleState();
     // Never erase an explicitly typed target while the user is refining a DSL
     // query. Only clear stale auto-filled data when switching modes.
     if ((force || document.activeElement !== this.findInput) && !this.manualTargetDirty) {

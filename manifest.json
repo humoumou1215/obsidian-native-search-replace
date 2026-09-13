@@ -1,9 +1,9 @@
 {
   "id": "native-search-replace",
   "name": "Native Search Replace",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "minAppVersion": "1.5.0",
-  "description": "Adds replacement controls directly to Obsidian's built-in Search and uses the native Search result model for exact files and result rows.",
+  "description": "Adds replacement controls directly to the built-in Search and uses its native result model for exact files and result rows.",
   "author": "humoumou",
   "authorUrl": "https://github.com/humoumou1215",
   "isDesktopOnly": false

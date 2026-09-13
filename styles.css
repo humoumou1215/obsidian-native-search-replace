@@ -104,7 +104,7 @@
   pointer-events: none;
 }
 
-.native-search-replace-mini-toggle:has(input:checked) {
+.native-search-replace-mini-toggle.is-checked {
   color: var(--text-on-accent);
   background: var(--interactive-accent);
 }
