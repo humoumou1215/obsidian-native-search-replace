@@ -1,0 +1,11 @@
+{
+  "name": "obsidian-native-search-replace",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "check": "node --check main.js"
+  },
+  "devDependencies": {
+    "obsidian": "latest"
+  }
+}

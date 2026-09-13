@@ -1,0 +1,205 @@
+/* Native Search Replace v0.2 — intentionally shaped like a second native Search row. */
+.native-search-replace-panel {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 4px 0 6px;
+}
+
+.native-search-replace-row,
+.native-search-replace-target-row {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) 28px 28px;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  min-width: 0;
+}
+
+.native-search-replace-target-row {
+  display: none;
+  margin-bottom: 4px;
+}
+
+.native-search-replace-target-row.is-visible {
+  display: grid;
+}
+
+.native-search-replace-leading-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 28px;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+
+.native-search-replace-leading-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.native-search-replace-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+  margin: 0;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  background: var(--background-modifier-form-field);
+  color: var(--text-normal);
+  box-shadow: none;
+}
+
+.native-search-replace-input:hover {
+  border-color: var(--background-modifier-border-hover);
+}
+
+.native-search-replace-input:focus {
+  border-color: var(--background-modifier-border-focus);
+  box-shadow: 0 0 0 2px var(--background-modifier-border-focus);
+}
+
+.native-search-replace-icon-button,
+.native-search-replace-mini-toggle {
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  margin: 0;
+  padding: 5px;
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+}
+
+.native-search-replace-icon-button:hover,
+.native-search-replace-mini-toggle:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.native-search-replace-all-button {
+  color: var(--interactive-accent);
+}
+
+.native-search-replace-mini-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-ui-smaller);
+  font-weight: 600;
+  cursor: var(--cursor);
+  user-select: none;
+}
+
+.native-search-replace-mini-toggle input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.native-search-replace-mini-toggle:has(input:checked) {
+  color: var(--text-on-accent);
+  background: var(--interactive-accent);
+}
+
+/* Actions are lazy overlays. They never change native Search row sizing. */
+.native-search-replace-has-file-button,
+.native-search-replace-has-match-button {
+  position: relative;
+}
+
+.native-search-replace-file-button,
+.native-search-replace-match-button {
+  position: absolute;
+  z-index: 4;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  padding: 4px;
+  margin: 0;
+  opacity: 0;
+  color: var(--text-muted);
+  background: var(--background-secondary);
+  border-radius: var(--radius-s);
+  box-shadow: 0 0 0 1px var(--background-modifier-border);
+  transition: opacity 80ms ease, color 80ms ease, background 80ms ease;
+}
+
+.native-search-replace-file-button {
+  inset-inline-end: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.native-search-replace-match-button {
+  inset-inline-end: 4px;
+  top: 4px;
+}
+
+.search-result:hover .native-search-replace-file-button,
+.search-result-file-match:hover .native-search-replace-match-button,
+.native-search-replace-file-button:focus-visible,
+.native-search-replace-match-button:focus-visible {
+  opacity: 1;
+}
+
+.native-search-replace-file-button:hover,
+.native-search-replace-match-button:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.native-search-replace-preview-file {
+  margin: var(--size-4-4) 0;
+  padding-bottom: var(--size-4-3);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.native-search-replace-preview-file h4 {
+  margin: 0 0 var(--size-4-2);
+  overflow-wrap: anywhere;
+}
+
+.native-search-replace-preview-snippet {
+  font-family: var(--font-monospace);
+  font-size: var(--font-smaller);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--background-secondary);
+  border-radius: var(--radius-s);
+  padding: var(--size-4-2);
+  margin-bottom: 4px;
+}
+
+.native-search-replace-preview-before { color: var(--text-error); }
+.native-search-replace-preview-after { color: var(--text-success); }
+.native-search-replace-summary {
+  color: var(--text-muted);
+  margin-bottom: var(--size-4-3);
+}
+.native-search-replace-hint {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  line-height: 1.35;
+}
+
+@media (max-width: 420px) {
+  .native-search-replace-row,
+  .native-search-replace-target-row {
+    grid-template-columns: 18px minmax(0, 1fr) 26px 26px;
+  }
+  .native-search-replace-leading-icon { width: 18px; }
+  .native-search-replace-icon-button,
+  .native-search-replace-mini-toggle {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+  }
+}
