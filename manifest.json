@@ -1,7 +1,7 @@
 {
   "id": "native-search-replace",
   "name": "Native Search Replace",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "minAppVersion": "1.5.0",
   "description": "Adds replacement controls directly to the built-in Search and uses its native result model for exact files and result rows.",
   "author": "humoumou",
