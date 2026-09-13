@@ -2,6 +2,14 @@
 
 Replacement controls integrated into Obsidian's built-in Search tab.
 
+## Installation
+
+Download `main.js`, `manifest.json`, and `styles.css` from the matching [GitHub release](https://github.com/humoumou1215/obsidian-native-search-replace/releases). Place them in `<vault>/.obsidian/plugins/native-search-replace/`, reload Obsidian, and enable **Native Search Replace** under **Settings → Community plugins**.
+
+## Usage
+
+Open Obsidian's built-in Search tab and run a search. Use the per-file or per-match replace controls that appear on the native result rows, or run **Native Search Replace: Preview replace all in native Search results** from the command palette before applying a bulk replacement.
+
 ## v0.2.0 — native result-model integration
 
 This version replaces the fragile DOM-to-file inference used in v0.1.x.
